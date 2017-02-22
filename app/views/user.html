@@ -1,0 +1,96 @@
+<!-- hbox layout -->
+<div class="hbox hbox-auto-xs bg-light">
+    <!-- column -->
+    <div ng-class="{'col user-grid-container-full': $state.includes('app.user'), 'col user-grid-container-half': $state.includes('app.user.edit') || $state.includes('app.user.add')}">
+        <div class="vbox">
+            <div class="wrapper user-list-header" style="box-shadow: 0px 2px 5px #888888;">
+                <div class="row user-list-header">
+                    <div class="font-thin h4 user-list-header-item">
+                        <i class="material-icons md-18">supervisor_account</i>&nbsp;&nbsp;User List
+                    </div>  
+                </div>
+                <div class="row user-list-dub-header">
+                    <div class="font-thin h5 user-list-sub-header-item">
+                        <div class="pull-left">
+                            Manage Users
+                        </div>
+                        <div class="pull-right user-padding-right">
+                            <a ng-click="masterUser.moveToAddUser()" href="javascript:void(0);">
+                                <span class="user-sub-navigation-add-user"><i class="material-icons md-18 user-add-circle-font">add_circle</i>&nbsp;&nbsp;Add User</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            
+            <div class="row-row ">
+                <div class="cell user-list-cell">
+                    <div class="cell-inner">
+                        <div class="wrapper-md">                            
+                            <div class="row">
+                                <div class="row main-search"> 
+                                    <div class="input-group search-box">
+                                        <input type="text" class="form-control"  placeholder="Search" ng-model="masterUser.search">
+                                        <span class="input-group-addon">
+                                            <button type="submit">
+                                                <span class="glyphicon glyphicon-search"></span>
+                                            </button>  
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <md-table-container class="user-table">
+                                        <table md-table md-row-select="masterUser.gridOptions.rowSelection" 
+                                            multiple="{{masterUser.gridOptions.multiSelect}}" 
+                                            ng-model="masterUser.selected">
+
+                                            <thead ng-if="!masterUser.gridOptions.decapitate" md-head md-order="masterUser.query.order" md-on-reorder="masterUser.logOrder">
+                                                <tr md-row>
+                                                    <th md-column></th>
+                                                    <th md-column md-order-by="Firstname">Firstname</th>
+                                                    <th md-column md-order-by="Lastname">Lastname</th>
+                                                    <th md-column md-order-by="EMailAddress">Email</th>
+                                                    <th md-column md-order-by="Username">Username</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody md-body class="user-table-body">
+                                                <tr md-row md-select="user" md-select-id="name" md-auto-select ng-repeat="user in masterUser.gridData1 = (masterUser.gridData| filter: masterUser.search) | orderBy: masterUser.query.order " ng-click="masterUser.rowSelection(user, false);" ng-class="{'user-list-grid-row-active': masterUser.selectedRow == user.UserId, 'user-list-grid-row': masterUser.selectedRow != user.UserId}">
+                                                    <td md-cell ng-click="masterUser.rowSelection(user, true)"><i class="material-icons md-18">delete</i></td>
+                                                    <td md-cell>
+                                                        {{user.Firstname}}
+                                                    </td>
+                                                    <td md-cell>
+                                                        {{user.Lastname}}
+                                                    </td>
+                                                    <td md-cell>
+                                                        {{user.EMailAddress}}</td>
+                                                    <td md-cell>
+                                                        {{user.Username}}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </md-table-container> 
+                                </div>
+                                <div ng-if="masterUser.gridData1.length === 0 && !masterUser.search" class="user-blank-list-message">                                    
+                                    No Users yet. Add Now.   
+                                </div>
+                                <div ng-if="masterUser.gridData1.length === 0 && masterUser.search" class="user-blank-list-message">
+                                    No records found.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /column -->
+
+    <!-- column -->
+    <div class="col w-md lter user-details-from-left-side" ng-if="$state.includes('app.user.edit') || $state.includes('app.user.add')" ui-view>
+    </div>
+    <!-- /column -->
+</div>
+<!-- /hbox layout -->

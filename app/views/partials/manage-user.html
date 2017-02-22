@@ -1,0 +1,226 @@
+<!-- <div scope-age ></div> -->
+<div class="vbox">
+    <div class="wrapper user-list-header" style="box-shadow: 0px 2px 5px #888888;">
+        <div class="row user-list-header">
+            <div class="font-thin h4 user-detail-header-item">
+                User Details
+                <a ng-click="masterUser.backToUserList()" class="pull-right" title="Close">
+                    <span class="user-sub-navigation-add-user"><i class="material-icons md-18">cancel</i></span>
+                </a>
+            </div>  
+        </div>
+        <div class="row user-list-dub-header">
+            <div class="font-thin h5 user-list-sub-header-item">
+                <div class="pull-left user-detail-sub-div" ng-if="masterUser.showUserEmail">
+                    <span>{{masterUser.userEmailAddress}}</span>
+                </div>
+            </div>
+        </div>                
+    </div>
+    <div class="row-row">
+        <form name="manageUserForm" novalidate style="height:100%;" class="manage-user-form">
+            <div class="cell">
+                <div class="cell-inner user-details-inner-cell">
+                    <div class="user-manage-wrapper">
+                        <div style="width: 100%;">
+                            <div class="user-form-container">
+                                <div layout="column" ng-cloak="" class="md-inline-form inputdemoBasicUsage manage-user-form">
+                                    <md-content layout-padding="">
+                                        <div class="user-details-content-div">
+                                            <div layout-gt-sm="row">
+                                                <md-input-container class="md-block" flex-gt-sm="">
+                                                    <label>First name</label>
+                                                        <input ng-model="manageUser.formData.firstName"       name="firstName" 
+                                                               ng-required="true">
+                                                </md-input-container>
+                                            </div>
+
+                                            <div layout-gt-sm="row">
+                                                <md-input-container class="md-block" flex-gt-sm="">
+                                                    <label>Last name</label>
+                                                    <input ng-model="manageUser.formData.lastName" 
+                                                            name="lastName" ng-required="true">
+                                                </md-input-container>
+                                            </div>
+
+                                            <div layout-gt-sm="row">
+                                                <md-input-container class="md-block" flex-gt-sm="">
+                                                    <label>Email</label>
+                                                    <input ng-model="manageUser.formData.emailAddress" type="email" name="emailAddress" ng-required="true">
+                                                </md-input-container>
+                                            </div>
+
+                                            <div layout-gt-sm="row">
+                                                <md-input-container class="md-block" flex-gt-sm="">
+                                                    <label>Confirm Email</label>
+                                                        <input ng-model="manageUser.formData.confirmEmailAddress" 
+                                                            type="email" name="confirmEmailAddress" 
+                                                            ng-required="true">
+                                                        <div class="user-save-failed-message" ng-show="manageUserForm.$submitted || manageUserForm.confirmEmailAddress.$touched">
+                                                            <div ng-show="manageUser.formData.emailAddress != manageUser.formData.confirmEmailAddress">
+                                                                Please confirm Email.
+                                                            </div>
+                                                        </div>
+                                                </md-input-container>
+                                            </div>
+
+                                            <div layout-gt-sm="row">
+                                                <md-input-container class="md-block" flex-gt-sm="">
+                                                    <label>Username</label>
+                                                    <input ng-model="manageUser.formData.username" name="username" ng-required="true">
+                                                </md-input-container>
+                                            </div>
+
+                                            <div layout-gt-sm="row" ng-if="manageUser.isNewUser">
+                                                <md-input-container class="md-block" flex-gt-sm="">
+                                                    <label>Password</label>
+                                                    <input type="password" ng-model="manageUser.formData.password" name="password" ng-minlength="6" ng-required="true">
+                                                    <div class="help-block" ng-messages="manageUserForm.password.$error" ng-if="manageUserForm.password.$touched">
+                                                        <p ng-message="minlength">
+                                                            Minimum length for password is 6 character.
+                                                        </p>
+                                                    </div>
+                                                </md-input-container>
+                                            </div>
+
+                                            <div layout-gt-sm="row" ng-if="manageUser.isNewUser">
+                                                <md-input-container class="md-block" flex-gt-sm="">
+                                                    <label>Confirm Password</label>
+                                                    <input type="password" ng-model="manageUser.formData.confirmPassword" name="confirmPassword" ng-required="true">
+                                                    <div class="user-save-failed-message" ng-show="manageUserForm.$submitted || manageUserForm.confirmPassword.$touched">
+                                                        <div ng-show="manageUser.formData.password != manageUser.formData.confirmPassword">
+                                                            Please confirm Password.
+                                                        </div>
+                                                    </div>
+                                                </md-input-container>
+                                            </div>
+                                        </div>
+                                    </md-content>
+                                </div>
+                            </div>
+                        </div >
+                    </div>
+                </div>
+                <div class="user-fixed-save-cancel-button-row">
+                    <div layout-gt-sm="row">
+                        <div class="col-xs-12">
+                            <div class="pull-left">
+                                <md-button type="{{manageUser.isNewUser?'reset':'cancel'}}" class="md-raised user-clear-button" ng-click="manageUser.backToUserList(manageUserForm)">
+                                    <span class="user-btn-text-align">Clear</span>
+                                    <i class="material-icons user-btn-text-align">delete_sweep</i>
+                                </md-button>
+                            </div>
+                            <div class="pull-right">
+                                <md-button type="submit" class="md-raised user-save-button pull-right" ng-click="manageUser.saveUser(manageUserForm)" ng-disabled="showLoading">
+                                    <span class="user-btn-text-align">Save</span>
+                                    <i class="material-icons user-btn-text-align">check_circle</i>
+                                    <span class="user-circular-btn-progress">
+                                        <md-progress-circular md-mode="indeterminate" class="md-hue-2" md-diameter="20px" ng-show="manageUser.showButtonLoading"></md-progress-circular>
+                                    </span>
+                                </md-button> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- <div class="user-form-container">
+    <div layout="column" ng-cloak="" class="md-inline-form inputdemoBasicUsage manage-user-form">
+        <md-content layout-padding="">
+            <div>
+                <form name="manageUserForm" novalidate>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>First name</label>
+                                <input ng-model="manageUser.formData.firstName"       name="firstName" 
+                                       ng-required="true">
+                        </md-input-container>
+                    </div>
+
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>Last name</label>
+                            <input ng-model="manageUser.formData.lastName" 
+                                    name="lastName" ng-required="true">
+                        </md-input-container>
+                    </div>
+
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>Email</label>
+                            <input ng-model="manageUser.formData.emailAddress" type="email" name="emailAddress" ng-required="true">
+                        </md-input-container>
+                    </div>
+
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>Confirm Email</label>
+                                <input ng-model="manageUser.formData.confirmEmailAddress" 
+                                    type="email" name="confirmEmailAddress" 
+                                    ng-required="true">
+                                <div class="user-save-failed-message" ng-show="manageUserForm.$submitted || manageUserForm.confirmEmailAddress.$touched">
+                                    <div ng-show="manageUser.formData.emailAddress != manageUser.formData.confirmEmailAddress">
+                                        Please confirm Email.
+                                    </div>
+                                </div>
+                        </md-input-container>
+                    </div>
+
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>Username</label>
+                            <input ng-model="manageUser.formData.username" name="username" ng-required="true">
+                        </md-input-container>
+                    </div>
+
+                    <div layout-gt-sm="row" ng-if="manageUser.isNewUser">
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>Password</label>
+                            <input type="password" ng-model="manageUser.formData.password" name="password" ng-minlength="6">
+                            <div class="help-block" ng-messages="manageUserForm.password.$error" ng-if="manageUserForm.password.$touched">
+                                <p ng-message="minlength">
+                                    Minimum length for password is 6 character.
+                                </p>
+                            </div>
+                        </md-input-container>
+                    </div>
+
+                    <div layout-gt-sm="row" ng-if="manageUser.isNewUser">
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>Confirm Password</label>
+                            <input type="password" ng-model="manageUser.formData.confirmPassword" name="confirmPassword" ng-required="true">
+                            <div class="user-save-failed-message" ng-show="manageUserForm.$submitted || manageUserForm.confirmPassword.$touched">
+                                <div ng-show="manageUser.formData.password != manageUser.formData.confirmPassword">
+                                    Please confirm Password.
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div class="user-fixed-save-cancel-button-row">
+                        <div layout-gt-sm="row">
+                            <div class="col-xs-12">
+                                <div class="pull-left">
+                                    <md-button type="{{manageUser.isNewUser?'reset':'cancel'}}" class="md-raised" ng-click="manageUser.backToUserList(manageUserForm)">
+                                        <span class="user-btn-text-align">Clear</span>
+                                        <i class="material-icons user-btn-text-align">delete_sweep</i>
+                                    </md-button>
+                                </div>
+                                <div class="pull-right">
+                                    <md-button type="submit" class="md-raised user-save-button pull-right" ng-click="manageUser.saveUser(manageUserForm)" ng-disabled="showLoading">
+                                        <span class="user-btn-text-align">Save</span>
+                                        <i class="material-icons user-btn-text-align">check_circle</i>
+                                        <span class="user-circular-btn-progress">
+                                            <md-progress-circular md-mode="indeterminate" class="md-hue-2" md-diameter="20px" ng-show="showLoading"></md-progress-circular>
+                                        </span>
+                                    </md-button> 
+                                </div>
+                            <div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </md-content>
+    </div>
+</div> -->
