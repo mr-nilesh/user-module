@@ -21,9 +21,5 @@
     "package.json",
     "bower.json",
     "README.md"
-  ],
-  "dependencies": {
-    "angular": "^1.4.0",
-    "angular-material": "^1.0.0"
-  }
+  ]
 }
