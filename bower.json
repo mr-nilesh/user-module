@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "description": "User Module",
   "main": [
-    "dist/user-module.js",
-    "dist/user-module.scss"
+    "dist/user-module.js"
   ],
   "repository": {
     "type": "git",
@@ -14,7 +13,7 @@
     "Nilesh Mistry"
   ],
   "ignore": [
-    "app/**/*.js",
+    "app/**",
     "app/user.route.js",
     "bower_components",
     "node_modules",
