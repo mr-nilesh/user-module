@@ -1,5 +1,5 @@
-app/**
-node_modules/**
+app/
+node_modules/
 bower.json
 Gruntfile.js
 package.json
