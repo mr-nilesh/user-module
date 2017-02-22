@@ -17,7 +17,10 @@
     "app/user.route.js",
     "bower_components",
     "node_modules",
-    "Gruntfile.js"
+    "Gruntfile.js",
+    "package.json",
+    "bower.json",
+    "README.md"
   ],
   "dependencies": {
     "angular": "^1.4.0",
