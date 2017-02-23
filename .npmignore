@@ -2,5 +2,4 @@ app/
 node_modules/
 bower.json
 Gruntfile.js
-package.json
 README.md
