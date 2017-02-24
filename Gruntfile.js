@@ -1,10 +1,10 @@
 module.exports = function(grunt) {
 
-    function banner() {
+    function banner(a) {
         return '/*\n' +
             ' * User Module\n' +
             ' * https://github.com/mr-nilesh/user-module\n' +
-            ' * v' + getVersion() + '\n\n*/';
+            ' * v' + getVersion() + '\n\n*/\n';
     }
 
     function getVersion() {
@@ -16,13 +16,18 @@ module.exports = function(grunt) {
         concat: {
             options: {
                 banner: banner(),
-                separator: '\n\n'
+                process: function(src, filepath) {
+                    return src.replace(/..\/..\/..\/common\/theme\/default\/variables\.scss/g, '../../../src/common/theme/default/variables.scss');
+                }
             },
             build: {
                 files: {
                     'dist/user-module.js': [
                         'app/user.route.js',
                         'app/**/*.js'
+                    ],
+                    'dist/user-module.scss': [
+                        'app/styles/user.scss'
                     ]
                 }
             }

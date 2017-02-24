@@ -1,0 +1,302 @@
+/*
+ * User Module
+ * https://github.com/mr-nilesh/user-module
+ * v0.0.1
+
+*/
+@import '../../../src/common/theme/default/variables.scss';
+
+.user-breadcrumb {
+  color: #58666e;
+  font-size: 1.2em;
+  background-color: #f6f8f8;
+}
+.user-contents {
+  margin-left: 0px;
+}
+
+.ui-grid-header-cell,
+.ui-grid-cell {
+  background-color: #F6F8F8; 
+}
+
+.user-grid-container {
+  margin: 0em 0.5em;
+}
+
+.user-form-container {
+  margin-right: 0;
+}
+
+.user-grid-container-half {
+  width: 42%;
+  height: 100%;
+}
+
+@-moz-document url-prefix() {
+    .user-grid-container-half{
+        width:42%;
+        height: 100%;
+    }
+}
+.user-grid-container-full {
+  height: 100%;
+}
+
+/* User details from start */
+
+.user-details-form-header {
+  color: #58666e;
+  font-size: 18px;
+}
+
+.manage-user-form {
+  margin-right: 0px;
+  min-height: 100%;
+  margin-bottom: 25px;
+}
+
+.manage-user-form > .layout-padding {
+  background-color: $content-background-color;
+}
+
+.user-details-inner-cell > .wrapper-md {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.user-list-header {
+  /*background-color: #f6f8f8;*/
+  background-color: $content-header-color !important;
+  color: $content-header-font-color !important;
+  margin-top:-5px;
+  color:white;
+}
+
+.user-add-right-button {
+  margin-left: -9px
+}
+
+.user-fixed-save-cancel-button-row {
+  position: absolute;
+  bottom: 11px;
+  background-color: #F6F8F8;
+  height: 40px;
+  z-index: 70;
+  height: 50px;
+  border-top: 1px solid #dee5e7;
+  /*border-left: 1px solid #dee5e7;*/
+  width: inherit;
+}
+
+.user-save-button {
+  background-color: $primary-button-color !important;
+  color: $primary-button-font-color !important;
+}
+
+.user-cancel-button {
+  background-color: $secondary-button-color !important;
+}
+
+.user-fixed-save-cancel-button-container {
+  margin-left: 0px;
+}
+
+.user-details-from-left-side {
+  width: 24%;
+  height: calc(100% - (50px + 50px + 1px)) !important;
+}
+
+.cell > .user-details-inner-cell {
+  overflow-x: hidden !important;
+}
+
+
+/* User details from end */
+
+.user-list-cell > .cell-inner {
+  overflow-x: hidden !important;
+}
+
+.user-list-grid-row {
+  
+}
+
+.user-list-grid-row-active {
+  background-color: #F6F8F8;
+}
+
+.user-sub-navigation {
+  text-align: center;
+  margin: auto;
+  display: table;
+  margin-right:10px;
+}
+
+.user-sub-navigation-remove-user,
+.user-sub-navigation-add-user {
+  display: flex;
+  /* font-size: 1.3em; */
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.user-sub-navigation-add-user-row {
+  width: 125px; 
+}
+
+.user-sub-navigation-remove-user-row {
+  width: 150px; 
+}
+
+.user-remove-button-disabled {
+  cursor: not-allowed;
+}
+
+.user-blank-list-message {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.user-list-header-item {
+  margin-left: 10px;
+  /*display: flex;*/
+  font-size: 1.7em;
+  font-weight: 400;
+}
+
+.user-list-sub-header-item {
+  margin-left: 40px;
+  /*display: flex;*/
+}
+
+.user-list-sub-header-item div{
+  font-weight: 500;
+}
+
+.user-save-failed-message {
+  color: red;
+}
+
+md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-icon {
+  background-color: $checkbox-color;
+}
+
+
+.main-search {
+  margin: 0 auto;
+}
+
+.search-box .input-group-addon{
+    background: white !important; 
+}
+.search-box .form-control{
+  border-right:0; 
+  box-shadow:0 0 0; 
+  border-color:#ccc;
+}
+.search-box button{
+    border:0;
+    background:transparent;
+}
+
+.user-btn-text-align {
+  vertical-align: middle;
+}
+
+.user-circular-btn-progress {
+  vertical-align: middle;
+  display: inline-block; 
+}
+
+.user-margin-left {
+  margin-left:-25px;
+}
+
+.user-detail-header-item {
+  margin-left: 20px;
+  font-size: 1.7em;
+  font-weight: 400;
+  margin-right: 20px
+}
+
+.user-detail-header {
+  background-color: #f6f8f8;
+  padding-top: 25px;
+}
+
+.user-list-dub-header {
+  border-right: 1px #58666e;
+}
+
+.user-padding-right {
+  padding-right: 30px;
+}
+
+.user-add-circle-font {
+  font-size:15px;
+}
+
+.user-detail-sub-div {
+  height:18px;margin-left: -18px;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.user-manage-wrapper {
+  width: 100%;
+  margin:0;
+  padding:20px 0 0 0;
+  background-color: $content-background-color;
+}
+
+.user-table {
+  border: 1px rgba(0, 0, 0, 0.12) solid;
+}
+
+.user-table-body {
+  background-color: $content-background-color;
+}
+
+.user-details-from-left-side > .vbox > .row-row > .cell {
+  border: 1px rgba(0, 0, 0, 0.12) solid;
+}
+
+.user-detail-header-item > a:hover,
+.user-padding-right > a:hover {
+  color: #D0FAD0;
+}
+
+.user-list-cell {
+  height: calc(100% - 15px) !important;
+}
+
+.user-details-inner-cell {
+  height: calc(100% - 66px) !important;
+}
+
+.user-details-from-left-side > div > .row-row {
+  background-color: $content-background-color;
+}
+
+.user-details-content-div > div > md-input-container {
+ margin : 5px 0px;
+}
+
+.user-clear-button {
+  background-color : $secondary-button-color !important;
+  color: $secondary-button-font-color !important;
+}
+
+.user-details-content-div {
+  background-color : $content-background-color;
+}
+
+.manage-user-form {
+  /* background-color : $content-background-color; */
+}

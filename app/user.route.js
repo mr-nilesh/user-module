@@ -35,6 +35,7 @@ import './styles/user.scss';
                 });
         }
 
+    require('./services/users.service.js');
     require('./utilities/ui-grid-column-definations.util.js');
     require('./controllers/select-user.controller.js');
     require('./controllers/edit-user.controller.js');

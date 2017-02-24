@@ -3,7 +3,8 @@
  * https://github.com/mr-nilesh/user-module
  * v0.0.1
 
-*/import './styles/user.scss';
+*/
+import './styles/user.scss';
 'use strict';
 (function() {
 
@@ -45,7 +46,6 @@
     require('./controllers/edit-user.controller.js');
     require('./controllers/add-user.controller.js');
 })();
-
 'use strict';
 (function(){
     angular
@@ -148,7 +148,6 @@
             }
         }
 })();
-
 'use strict';
 (function(){
     angular
@@ -252,7 +251,6 @@
             }
         }
 })();
-
 'use strict';
 (function(){
     angular
@@ -436,7 +434,6 @@
             }
         }
 })();
-
 'use strict';
 (function(){
     angular
@@ -469,7 +466,6 @@
             }
         }
 })();
-
 'use strict';
 
 (function() {
@@ -541,7 +537,6 @@
         .service('userService', userService);
 
 }());
-
 
 'use strict';
 
