@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                 banner: banner(),
                 process: function(src, filepath) {
                     var replacedString = src.replace(/.\/styles\/user\.scss/g, './user-module.scss');
-                    var replacedRequire = src.replace(/require/g, '//require');
+                    var replacedRequire = replacedString.replace(/require/g, '//require');
                     return replacedRequire.replace(/..\/..\/..\/common\/theme\/default\/variables\.scss/g, '../../../src/common/theme/default/variables.scss');
                 }
             },

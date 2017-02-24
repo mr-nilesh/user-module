@@ -4,7 +4,7 @@
  * v0.0.1
 
 */
-import './styles/user.scss';
+import './user-module.scss';
 'use strict';
 (function() {
 
