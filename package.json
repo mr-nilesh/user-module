@@ -2,7 +2,7 @@
   "name": "common-user-module",
   "version": "0.0.1",
   "description": "User Module",
-  "main": "app/user.route.js",
+  "main": "dist/user.module.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/mr-nilesh/user-module.git"

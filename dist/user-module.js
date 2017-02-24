@@ -4,7 +4,7 @@
  * v0.0.1
 
 */
-import './styles/user.scss';
+import './user-module.scss';
 'use strict';
 (function() {
 
@@ -41,6 +41,7 @@ import './styles/user.scss';
                 });
         }
 
+    require('./services/users.service.js');
     require('./utilities/ui-grid-column-definations.util.js');
     require('./controllers/select-user.controller.js');
     require('./controllers/edit-user.controller.js');
